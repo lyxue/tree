@@ -30,3 +30,7 @@ npm install less  less-loader --save-dev
 npm install less less-loader --save-dev(--save-dev表示不上线)
 1、直接下载即可
 2、在style样式里边添加<style type="text/css" lang="less" scoped>
+
+<!-- 页面 -->
+1、ITree我要种树
+2、WePlantTrees我们种树

@@ -67,7 +67,7 @@ export default {
 			this.$router.push("/iTree")		//我要种树
 		},
 		weTree(){
-			this.$router.push("/weTree")		//我们种树
+			this.$router.push("/wePlantTrees")		//我们种树
 		}
 	}
 }
@@ -78,16 +78,16 @@ export default {
 		.main{
 			background: url("../../../assets/login_background@2x.png") no-repeat;
 			background-size:cover;
-			height:16.08rem;
+			height:16.58rem;
 			width:10rem;
 			position: relative;
 			.zhezhao{					//遮罩
-				margin-top: 65px;
+				margin-top: 1.73rem;
 				position: fixed;
-				left:0px;
-				right:0px;
-				bottom:0px;
-				top: 0px;
+				left:0rem;
+				right:0rem;
+				bottom:0rem;
+				top: 0rem;
 				z-index: 99;
 				opacity: 0.7;
 				background: #030303;
@@ -100,7 +100,7 @@ export default {
 				height: 10rem;
 				background: #FFFFFF;
 				z-index: 9999999;
-				border-radius: 20px;
+				border-radius: 0.53rem;
 				img{
 					width: 7.6rem;
 					height: 10rem;
@@ -115,15 +115,15 @@ export default {
 				height: 7.6rem;
 				background: #FFFFFF;
 				z-index: 9999999;
-				border-radius: 20px;
+				border-radius: 0.53rem;
 				text-align: center;
 				.close{
 					position: absolute;
-					top: -11px;
-					right: -9px;
+					top: -0.29rem;
+					right: -0.24rem;
 					img{
-						width: 28px;
-						height: 28px;
+						width: 0.74rem;
+						height: 0.74rem;
 					}
 				}
 				.login1{
@@ -143,7 +143,7 @@ export default {
 						width: 6.13rem;
 						height: 1.09rem;
 						background: #F7F7F7;
-						border: 1px solid #D0D0D0;
+						border: 0.02rem solid #D0D0D0;
 						border-radius: 0.21rem;
 					}
 					.yanzhengmatanchaung{
@@ -174,7 +174,7 @@ export default {
 							padding-left: 0.4rem;
 							background: #F7F7F7;
 							border-radius: 0.21rem;
-							border: 1px solid #D0D0D0;
+							border: 0.02rem solid #D0D0D0;
 						}
 						.number3{
 							width: 2.4rem;
@@ -183,7 +183,7 @@ export default {
 							border-radius: 0.21rem;
 							background: #FFFFFF;
 							color: #FAC538;
-							border: 1px solid #F9B707;
+							border: 0.02rem solid #F9B707;
 						}
 					}
 				}
@@ -212,7 +212,7 @@ export default {
 				height: 1.28rem;
 				border-radius: 0.66rem;
 				background: #F9B707;
-				border: 0px;
+				border: 0rem;
 				color: #4E1D0E;
 				font-size: 0.45rem;
 				font-family:"PingFangSC-Medium";

@@ -4,28 +4,43 @@
 			<Header></Header>
 		</div>
 		<div class="top">
-			<div class="left" @click="paihang">
-				<img src="../../../assets/paihang.png" alt="能量排行榜">
-			</div>
-			<div class="right">
-				<img src="../../../assets/zhongshu.png">
-				<span class="zhiliang">1980g</span>
-				<span class="text">种树</span>
+			<div class="left">
+				<img src="../../../assets/zhongshupaihang.png" alt="种树排行" @click="paihang">
+				<div class="weyaoqing">
+					<img src="../../../assets/yaoqing.png" alt="邀请">
+				</div>
 			</div>
 			<!-- 主题 -->
 			<div class="theme"></div>
+			<div class="fendui">
+				<div class="zuobian">
+					<p class="p1">
+						<i><img src="../../../assets/xiaoqizi.png" alt="小旗子"></i>
+						<span>植树小分队111</span>
+					</p>
+					<p class="p2">
+						<i><img src="../../../assets/nengliangtubiao.png" alt="能量图标"></i>
+						<span>1980g</span>
+					</p>
+				</div>
+				<div class="youbian">
+					<span>种树</span>
+				</div>
+			</div>
 			<!-- 规则 -->
 			<i class="gonglv" @click="gonglve"><img src="../../../assets/gonglv.png" alt="攻略"></i>
 			<i class="guize" @click="close"><img src="../../../assets/guize.png" alt="规则"></i>
 			<!-- 树苗=======>需要更换 -->
-			<img src="../../../assets/xiaoshu.png" alt="小树" class="shu">
+			<img src="../../../assets/dashu.png" alt="大树" class="shu">
 			<!-- 4个能量 -->
-			<div class="nengliang nengliang1">充值成功 +50g能量</div>
+			<!-- <div class="nengliang nengliang1">充值成功 +50g能量</div>
 			<div class="nengliang nengliang2">签到成功 +100g能量</div>
 			<div class="nengliang nengliang3">邀请好友 +300g能量</div>
-			<div class="nengliang nengliang4">订购成功 +50g能量</div>
-			<div class="heanniu" @click="xianshi"><img src="../../../assets/hezhonganniu.png" alt="合种按钮"></div>
-			<div class="getNl"><img src="../../../assets/getnengliang.png" alt="获取更多能量"></div>
+			<div class="nengliang nengliang4">订购成功 +50g能量</div> -->
+			<div class="jiaoshui">
+				<div class="jiaoshuitu" @click="jiaoshuitu"></div>
+			</div>
+			
 		</div>
 		<!--===================================那两个规则与弹窗========================================== -->
 		<!-- 遮罩层 -->
@@ -77,29 +92,19 @@
 		<!-- 遮罩层 -->
 		<div class="mask" v-if="fenxiang" @click="yincang"></div>
 		<div class="fenxiangtu1" v-if="fenxiang">
-			<span>分享活动，邀请好友参与,获得能量</span>
+			<span>分享邀请好友参与一起种树</span>
 		</div>
 		<div class="fenxiangtu2" v-if="fenxiang">
 			<img src="../../../assets/fenxiang.png">
 		</div>
-		<!--==================================种树成功弹窗=========================================== -->
-		<div class="mask" v-if="success"></div>
-		<div class="successTanchuang" v-if="success">
-			<i class="closeSuccess" @click="successClose"><img src="../../../assets/common_shut@2x.png"></i>
-			<span class="zhongshuchenggong">种树成功</span>
-			<p>XXXXXXX将在XXXXXX种植第N棵树</p>
-		</div>
-		<!--==================================合种弹窗=========================================== -->
-		<div class="mask" v-if="hezhong"></div>
-		<div class="hezhongTanchuang" v-if="hezhong">
-			<div class="tu">
-				<img src="../../../assets/popup_image1.png">
-				<i class="closehezhong" @click="hezhongclose"><img src="../../../assets/common_shut@2x.png"></i>
-			</div>
-			<p>给您的小树取个名字哦～</p>
-			<input type="text" placeholder="请输入小树名称" />
-			<span>*建议4～6位字符</span>
-			<button type="primary" class="faqihezhong">发起合种</button>
+		<!-- ================================浇水成功弹窗============================================ -->
+		<div class="mask" v-if="jiaoshui"></div>
+		<div class="jiaoshuichenggong" v-if="jiaoshui">
+			<div class="jiaoshuitu"></div>
+			<i class="jiaoshuiclose" @click="closejiaoshui"><img src="../../../assets/common_shut@2x.png"></i>
+			<p class="pp1">浇水成功！</p>
+			<p class="pp2">成功浇水100g能量</p>
+			<button type="primary" class="know">我知道了</button>
 		</div>
 		<div class="bottom">
 			<div class="dibu">
@@ -168,9 +173,6 @@
 </template>
 <script>
 import Header from "./Header.vue";
-import shumiao1 from "@/assets/xiaoshu.png";
-import shumiao2 from "@/assets/zhongshumiao.png";
-import shumiao3 from "@/assets/dashu.png";
 export default {
 	name:"PlantTree",
 	components:{
@@ -178,43 +180,35 @@ export default {
 	},
 	data(){
 		return {
-			shumiao:[
-				{shumiao:shumiao1}
-			],
 			cishu:0,
 			show:false,					//规则
 			IsShow:false,				//攻略
 			fenxiang:false,				//分享
-			success:false,				//种树成功弹窗
-			hezhong:false				//合种弹窗
+			jiaoshui:true				//浇水成功弹窗
+			
 		}
 	},
 	created:function(){ 
 		
 	},
 	methods:{
-		paihang(){
-			this.$router.push("/energyRanking")		//跳到能量排行
+		paihang(){//跳到种树排行
+			this.$router.push("/treeList")		
 		},
-		gonglve(){
+		gonglve(){  //显示种树攻略
 			this.IsShow=!this.IsShow;
 		},
-		close(){
+		close(){	//显示种树规则
 			this.show=!this.show;
-			console.log("点到我了")
 		},
-		yincang(){
+		yincang(){    //分享层
 			this.fenxiang=false;
 		},
-		successClose(){
-			this.success=false;
+		closejiaoshui(){//浇水成功
+			this.jiaoshui=false;
 		},
-		hezhongclose(){
-			this.hezhong=false;
-			console.log("点到我了")
-		},
-		xianshi(){  //合种按钮
-			this.hezhong=true;
+		jiaoshuitu(){//浇水那个图
+			this.jiaoshui=true;
 		}
 	}
 }
@@ -231,9 +225,9 @@ export default {
 		}
 		.top{
 			margin-top: 1.2rem;
-			background: url("../../../assets/ItreeBackgroundS.png") no-repeat;
+			background: url("../../../assets/hezhongSBJ.png") no-repeat;
 			background-size:cover;
-			height:13.92rem;
+			height:16.29rem;
 			width:10rem;
 			position: relative;
 			.left{
@@ -241,54 +235,25 @@ export default {
 				position: absolute;
 				left: 0;
 				top: 1.13rem;
-				width: 1.6rem;
-				height: 1.6rem;
+				width: 1.61rem;
+				height: 6.16rem;
 				text-align: center;
 				line-height:1.6rem; 
 				img{
-					width: 1.6rem;
-					height: 1.6rem;
+					width: 1.61rem;
+					height: 5.13rem;
 				}
-			}
-			.right{
-				width: 3.2rem;
-				height: 1.01rem;
-				border-top: 0.04rem solid  #FFFFFF;
-				border-left: 0.04rem solid  #FFFFFF;
-				border-bottom: 0.04rem solid  #FFFFFF;
-				border-right: 0;
-				border-radius:0.66rem 0 0 0.66rem;
-				position: absolute;
-				top: 0.57rem;
-				right: 0rem;
-				background: #DDE9F3;
-				text-align: left;
-				line-height: 1.01rem;
-				img{
-					width: 0.98rem;
-					height: 0.9rem;
-				}
-				.zhiliang{
-					width: 0.97rem;
-					height: 0.34rem;
-					font-family: PingFangSC-Medium;
-					font-size: 0.34rem;
-					color: #4E1D0E;
-					letter-spacing: 0;
-					line-height:0.34rem;
-				}
-				.text{
-					display: inline-block;
-					width: 0.93rem;
-					height: 0.64rem;
-					background: #378F22;
-					border-radius: 0.53rem;
-					line-height: 0.64rem;
+				.weyaoqing{
+					width: 1.61rem;
+					height: 1.02rem;
+					background: #48B76E;
+					border-radius:0rem 0pc 0.26rem 0rem;
 					text-align: center;
-					font-family: PingFang-SC-Regular;
-					font-size: 0.32rem;
-					color: #FFFFFF;
-					letter-spacing: 0;
+					line-height: 1.02rem;
+					img{
+						width: 1.05rem;
+						height: 0.44rem;
+					}
 				}
 			}
 			.theme{
@@ -297,9 +262,81 @@ export default {
 				background: url("../../../assets/theme.png") no-repeat;
 				background-size:cover;
 				position: absolute;
-				top: 1.73rem;
+				top:1.2rem;
 				left: 2.02rem;
 				right: 2.02rem;
+			}
+			.fendui{
+				width: 5.33rem;
+				height: 1.2rem;
+				background: #F2F2F2;
+				position: absolute;
+				top:4.41rem;
+				left: 2.02rem;
+				right: 2.02rem;
+				border-radius: 0.8rem;
+				margin-left: 0.32rem;
+				padding-left: 0.5rem;
+				padding-top: 0.08rem;
+				padding-right: 0.25rem;
+				border: 0.04rem solid #F1F9FD;
+				.zuobian{
+					display: inline-block;
+					width:3.2rem;
+					height: 0.93rem;
+					
+					float: left;
+					.p1{
+						line-height: 0.34rem;
+						i{
+							margin-top: 0.05rem; 
+							img{
+								width: 0.4rem;
+								height: 0.34rem;
+							}
+						}
+						span{
+							display: inline-block;
+							width: 2.44rem;
+							height: 0.34rem;
+							font-size: 0.32rem;
+							color: #666666;
+							margin-left: 0.08rem;
+						}
+					}
+					.p2{
+						margin-top: 0.13rem;
+						i{
+							img{
+								width: 0.4rem;
+								height: 0.34rem;
+							}
+						}
+						span{
+							display: inline-block;
+							width: 2.44rem;
+							height: 0.34rem;
+							font-size: 0.42rem;
+							color: #378F22;
+							margin-left: 0.08rem;
+						}
+					}
+				}
+				.youbian{
+					width:1.2rem;
+					height: 0.74rem;
+					background: #378F22;
+					display: inline-block;
+					float: right;
+					text-align: center;
+					line-height: 0.74rem;
+					border-radius: 0.8rem;
+					margin-top: 0.1rem;
+					span{
+						font-size: 0.34rem;
+						color: #FFFFFF;
+					}
+				}
 			}
 			.gonglv{
 				position: absolute;
@@ -321,68 +358,66 @@ export default {
 			}
 			.shu{
 				position: absolute;
-				top: 6.42rem;
-				left: 3.97rem;
-				width: 2.84rem;
-				height:4.5rem;
+				top: 6.13rem;
+				left: 2.45rem;
+				width: 4.88rem;
+				height: 6.2rem;
 			}
-			.nengliang{
-				width:3.52rem;
-				height: 0.74rem;
-				border-radius: 0.53rem;
-				font-size: 0.32rem;
-				color: #FFFFFF;
-				letter-spacing: 0;
-				text-align: center;
-				line-height: 0.74rem;
-				background: rgba(118,187,21,0.64);
-				box-shadow: inset 0 0 0.64rem 0 rgba(96,143,30,0.63);
-			}
-			.nengliang1{
+			.jiaoshui{
 				position: absolute;
-				top: 5.24rem;
-				left:0;
-			}
-			.nengliang2{
-				position: absolute;
-				top: 6.16rem;
-				right:1.74rem;
-			}
-			.nengliang3{
-				position: absolute;
-				top: 7.34rem;
-				left:1.33rem;
-			}
-			.nengliang4{
-				position: absolute;
-				top: 8.69rem;
-				right:0.62rem;
-			}
-			.heanniu{
-				position: absolute;
-				top: 11.24rem;
-				left:0.77rem;
-				img{
-					width: 1.52rem;
-					height: 1.72rem;
+				top:14.66rem;
+				left: 0rem;
+				width: 10rem;
+				height: 2.32rem;
+				background: url("../../../assets/hezhongzhezhao.png") no-repeat;
+				background-size:cover;
+				.jiaoshuitu{
+					width: 2.13rem;
+					height: 2.41rem;
+					background: url("../../../assets/jiaoshui.png") no-repeat;
+					background-size:cover;
+					margin: -1.2rem 4rem;
 				}
 			}
-			.getNl{
-				position: absolute;
-				top: 11.26rem;
-				right:0.66rem;
-				img{
-					width: 2.37rem;
-					height: 1.64rem;
-				}
-			}
+// 			.nengliang{
+// 				width:3.52rem;
+// 				height: 0.74rem;
+// 				border-radius: 0.53rem;
+// 				font-size: 0.32rem;
+// 				color: #FFFFFF;
+// 				letter-spacing: 0;
+// 				text-align: center;
+// 				line-height: 0.74rem;
+// 				background: rgba(118,187,21,0.64);
+// 				box-shadow: inset 0 0 0.64rem 0 rgba(96,143,30,0.63);
+// 			}
+// 			.nengliang1{
+// 				position: absolute;
+// 				top: 5.24rem;
+// 				left:0;
+// 			}
+// 			.nengliang2{
+// 				position: absolute;
+// 				top: 6.16rem;
+// 				right:1.74rem;
+// 			}
+// 			.nengliang3{
+// 				position: absolute;
+// 				top: 7.34rem;
+// 				left:1.33rem;
+// 			}
+// 			.nengliang4{
+// 				position: absolute;
+// 				top: 8.69rem;
+// 				right:0.62rem;
+// 			}
 		}	
 		.mask{
 			position: absolute;
 			top: 1.22rem;
 			left: 0rem;
 			width: 10rem;
-			height: 27.54rem;
+			height: 30.64rem;
 			opacity: 0.7;
 			background: #000000;
 			z-index: 9;
@@ -465,13 +500,13 @@ export default {
 			z-index: 9999;
 			span{
 				display: inline-block;
-				width: 4rem;
+				width: 4.45rem;
 				height: 0.96rem;
 				font-size: 0.37rem;
 				color: #FFFFFF;
 				text-align: center;
-				margin-top: 0.37rem;
-				margin-left: 0.53rem;
+				margin-top: 0.66rem;
+				margin-left: 0.26rem;
 			}
 		}
 		.fenxiangtu2{
@@ -486,109 +521,59 @@ export default {
 				height: 2.41rem;
 			}
 		}
-		.successTanchuang{
+		.jiaoshuichenggong{
 			position: fixed;
-			top: 3.36rem;
-			right: 1.2rem;
-			width: 7.6rem;
-			height: 10rem;
-			background: url("../../../assets/popup_over.png") no-repeat;
-			background-size:cover;
+			top: 5.84rem;
+			left: 2rem;
+			width: 6.01rem;
+			height: 6.36rem;
+			border-radius: 0.4rem;
+			background: #FFFFFF;
 			z-index: 99999;
-			border-radius: 0.53rem;
 			text-align: center;
-			.closeSuccess{
+			.jiaoshuitu{
+				position: fixed;
+				top: 4.53rem;
+				left: 2.45rem;
+				width: 4.98rem;
+				height:3.33rem;
+				background: url("../../../assets/popup_image3.png") no-repeat;
+				background-size:cover;
+				z-index: 9999999999;
+			}
+			.jiaoshuiclose{
 				position: absolute;
 				top: -0.26rem;
-				right: -0.13rem;
+				right: -0.16rem;
 				img{
 					width: 0.74rem;
 					height: 0.74rem;
 				}
 			}
-			.zhongshuchenggong{
-				display: inline-block;
-				width: 2.13rem;
-				height: 0.74rem;
-				margin-top: 0.88rem;
-				font-size: 0.53rem;
-				color: #4E1D0E;
+			.pp1{
+				margin-top: 2.48rem;
+				font-size: 0.4rem;
+				color: #333333;
 			}
-			p{
-				margin-top: 0.32rem;
+			.pp2{
+				margin-top: 0.37rem;
 				font-size: 0.34rem;
 				color: #666666;
 			}
-		}
-		.hezhongTanchuang{
-			position: fixed;
-			top:5.72rem;
-			right: 1.2rem;
-			width: 7.6rem;
-			height: 7.64rem;
-			background: #FFFFFF;
-			z-index: 99999;
-			border-radius: 0.53rem;
-			text-align: center;
-			.tu{
-				position: absolute;
-				top:-2.45rem;
-				right: 0;
-				width: 7.6rem;
-				height: 4.82rem;
-				img{
-					width:5.58rem;
-					height: 4.1rem;
-				}
-				.closehezhong{
-					position: absolute;
-					top: 2.18rem;
-					right: -0.18rem;
-					img{
-						width: 0.74rem;
-						height: 0.74rem;
-					}
-				}
-			}
-			p{
-				margin-top: 2.13rem;
-				font-size: 0.42rem;
-				color: #333333;
-			}
-			input{
-				width: 6.13rem;
-				height: 1.09rem;
-				border-radius: 0.26rem;
-				background: #F7F7F7;
-				margin-top: 0.66rem;
-				border: 0.02rem;
-				box-shadow: inset 0 0.02rem 0.08rem 0 rgba(0,0,0,0.25);
-				padding-left: 0.72rem;
-				font-size: 0.34rem;
-				color: #9A9A9A;
-			}
-			span{
-				margin-top: 0.26rem;
-				padding-right: 2.16rem;
-				display: inline-block;
-				font-size: 0.29rem;
-				color: #9A9A9A;
-			}
-			.faqihezhong{
-				width: 6.13rem;
+			.know{
+				margin-top: 0.82rem;
+				width: 5.22rem;
 				height: 1.09rem;
 				background: #F9B707;
+				border-radius:0.8rem;
 				border: 0;
-				font-weight: bold;
-				margin-top: 0.69rem;
-				border-radius: 0.8rem;
 				font-size: 0.42rem;
 				color: #4E1D0E;
 			}
 		}
 		.bottom{
 			position: absolute;
-			top: 14.13rem;
+			top: 17.2rem;
 			left: 0rem;
 			background: url("../../../assets/ItreeBackgroundX.png") no-repeat;
 			background-size:cover;
