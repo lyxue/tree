@@ -42,7 +42,7 @@ export default {
 			margin-top: 1.2rem;
 			width: 10rem;
 			height: 16.58rem;
-			background: url("../../../assets/invitation.png") no-repeat;
+			background: url("http://wx.yn10010.com/wx_webs/tree/static/img/invitation.png") no-repeat;
 			background-size:cover;
 			position: relative;
 			.canyu{
@@ -66,7 +66,7 @@ export default {
 			.zhuti{
 				width: 5.94rem;
 				height: 3.21rem;
-				background: url("../../../assets/theme.png") no-repeat;
+				background: url("http://wx.yn10010.com/wx_webs/tree/static/img/theme.png") no-repeat;
 				background-size:cover;
 				position: absolute;
 				top: 1.2rem;

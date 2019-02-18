@@ -6,17 +6,17 @@
 		<div class="main">
 			<ul>
 				<li>
-					<i class="number"><img src="../../../assets/jinpai.png"></i>
+					<i class="number number1"></i>
 					<div class="nickname">这是合种树的名称</div>
 					<span class="energy">2000g</span>
 				</li>
 				<li>
-					<i class="number"><img src="../../../assets/yinpai.png"></i>
+					<i class="number number1"></i>
 					<div class="nickname">这是合种树的名称</div>
 					<span class="energy">1800g</span>
 				</li>
 				<li>
-					<i class="number"><img src="../../../assets/tongpai.png"></i>
+					<i class="number number1"></i>
 					<div class="nickname">这是合种树的名称</div>
 					<span class="energy">2000g</span>
 				</li>
@@ -105,6 +105,7 @@ export default {
 					padding-right: 0.82rem;
 					line-height: 1.33rem;
 					.number{
+						margin-top: 0.45rem;
 						font-style:normal;
 						float: left;
 						display: inline-block;
@@ -113,10 +114,15 @@ export default {
 						font-size: 0.37rem;
 						color: #999999;
 						text-align: center;
-						img{
-							width: 0.42rem;
-							height: 0.53rem;
-						}
+					}
+					.number1{
+						background: url("../../../assets/TreePlanting.fw.png") no-repeat -2.66rem -2.66rem;
+					}
+					.number2{
+						background: url("../../../assets/TreePlanting.fw.png") no-repeat -4rem -2.66rem;
+					}
+					.number3{
+						background: url("../../../assets/TreePlanting.fw.png") no-repeat -5.33rem -2.66rem;
 					}
 					.nickname{
 						display: inline-block;

@@ -6,11 +6,11 @@
 			<div class="zhezhao" v-if="isShow"></div>
 			<!-- 二维码 -->
 			<div class="Popup" v-if="show">
-				<img src="../../../assets/gongzhonghao.png" alt="扫描二维码关注公众号">
+				<img src="http://wx.yn10010.com/wx_webs/tree/static/img/gongzhonghao.png" alt="扫描二维码关注公众号">
 			</div>
 			<!-- 身份验证 -->
 			<div class="login" v-if="guanbi">
-				<i class="close" @click="close"><img src="../../../assets/common_shut@2x.png" alt="点击关闭窗口"></i>
+				<i class="close" @click="close"></i>
 				<div class="login1">参与活动需先绑定您的手机号</div>
 				<div class="login2">
 					<input type="text" placeholder="请输入您的手机号" class="number1"/>
@@ -76,7 +76,7 @@ export default {
 <style type="text/css" lang="less" scoped>
 	#home{
 		.main{
-			background: url("../../../assets/login_background@2x.png") no-repeat;
+			background: url("http://wx.yn10010.com/wx_webs/tree/static/img/login_background@2x.png") no-repeat;
 			background-size:cover;
 			height:16.58rem;
 			width:10rem;
@@ -120,10 +120,10 @@ export default {
 					position: absolute;
 					top: -0.29rem;
 					right: -0.24rem;
-					img{
-						width: 0.74rem;
-						height: 0.74rem;
-					}
+					display: inline-block;
+					width: 0.74rem;
+					height: 0.74rem;
+					background: url("../../../assets/TreePlanting.fw.png") no-repeat -0.05rem 0;
 				}
 				.login1{
 					width: 5.54rem;

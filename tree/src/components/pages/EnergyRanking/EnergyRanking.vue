@@ -1,4 +1,5 @@
 <template>
+	<!-- 能量排行 -->
 	<div id="EnergyRanking">
 		<div class="dingwei">
 			<Header></Header>
@@ -6,15 +7,16 @@
 		<div class="main">
 			<ul>
 				<li>
-					<i class="number"><img src="../../../assets/jinpai.png"></i>
+					<i class="number number1"></i>
 					<div class="nickname">
+						<!-- 网络请求图片路径 -->
 						<img src="../../../assets/touxiang.png">
 						1790458441
 					</div>
 					<span class="energy">2000g</span>
 				</li>
 				<li>
-					<i class="number"><img src="../../../assets/yinpai.png"></i>
+					<i class="number number2"></i>
 					<div class="nickname">
 						<img src="../../../assets/touxiang.png">
 						1790458441
@@ -22,7 +24,7 @@
 					<span class="energy">1800g</span>
 				</li>
 				<li>
-					<i class="number"><img src="../../../assets/tongpai.png"></i>
+					<i class="number number3"></i>
 					<div class="nickname">
 						<img src="../../../assets/touxiang.png">
 						1790458441
@@ -138,15 +140,26 @@ export default {
 					padding-right: 0.82rem;
 					line-height: 1.33rem;
 					.number{
+						margin-top: 0.45rem;
 						font-style:normal;
 						float: left;
 						display: inline-block;
 						width: 0.42rem;
 						height: 0.53rem;
+						line-height: 0.53rem;
 						img{
 							width: 0.42rem;
 							height: 0.53rem;
 						}
+					}
+					.number1{
+						background: url("../../../assets/TreePlanting.fw.png") no-repeat -2.66rem -2.66rem;
+					}
+					.number2{
+						background: url("../../../assets/TreePlanting.fw.png") no-repeat -4rem -2.66rem;
+					}
+					.number3{
+						background: url("../../../assets/TreePlanting.fw.png") no-repeat -5.33rem -2.66rem;
 					}
 					.nickname{
 						display: inline-block;

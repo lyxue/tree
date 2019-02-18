@@ -2,7 +2,7 @@
 	<div id="header">
 		<div class="daohang">
 			<ul>
-				<li class="left" @click="fanhui"><img src="../../../assets/return.png"></li>
+				<li class="left" @click="fanhui"></li>
 				<li class="center">我们种树</li>
 				<li class="right"></li>
 			</ul>
@@ -48,18 +48,19 @@ export default {
 				display: flex;
 				justify-content: space-between;
 				.left{
+					margin-left: 0.37rem;
 					padding-left: 0.34rem;
 					font-size: 0.48rem;
 					color: #333333;
 					height: 0.46rem;
 					text-align: left;
 					line-height:0.46rem;
-					img{
-						width: 0.26rem;
-						height: 0.5rem;
-					}
+					width: 0.26rem;
+					height: 0.5rem;
+					background: url("../../../assets/TreePlanting.fw.png") no-repeat -2.66rem -5.33rem;
 				}
 				.center{
+					padding-right: 0.4rem;
 					font-size: 0.48rem;
 					color: #333333;
 					height: 0.46rem;
@@ -68,6 +69,22 @@ export default {
 					letter-spacing: 0;
 					font-family: PingFangSC-Regular;
 					font-weight: 600;
+				}
+			}
+		}
+		.paiming{
+			width: 10rem;
+			height: 1.33rem;
+			background: #F2F2F2;
+			ul{
+				list-style: none;
+				display: flex;
+				justify-content: space-between;
+				padding-left: 0.72rem;
+				line-height: 1.33rem;
+				padding-right: 0.8rem;
+				.center{
+					margin-right: 2.13rem;
 				}
 			}
 		}

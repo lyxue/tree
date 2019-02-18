@@ -2,7 +2,7 @@
 	<div id="header">
 		<div class="daohang">
 			<ul>
-				<li class="left" @click="fanhui"><img src="../../../assets/return.png"></li>
+				<li class="left" @click="fanhui"></li>
 				<li class="center">种树排行</li>
 				<li class="right"></li>
 			</ul>
@@ -61,12 +61,13 @@ export default {
 					height: 0.46rem;
 					text-align: left;
 					line-height:0.46rem;
-					img{
-						width: 0.26rem;
-						height: 0.5rem;
-					}
+					width: 0.26rem;
+					height: 0.5rem;
+					margin-left: 0.4rem;
+					background: url("../../../assets/TreePlanting.fw.png") no-repeat -2.66rem -5.33rem;
 				}
 				.center{
+					padding-right: 0.64rem;
 					font-size: 0.48rem;
 					color: #333333;
 					height: 0.46rem;

@@ -47,17 +47,16 @@ export default {
 				list-style: none;
 				display: flex;
 				justify-content: space-between;
-				padding-left: 12.5px;
+				padding-left: 0.33rem;
 				.left{
 					font-size: 0.48rem;
-					width: 30px;
-					height: 30px;
-					// background: url("../../assets/TreePlanting.fw.png") no-repeat 2px 0;
+					width: 0.8rem;
+					height: 0.8rem;
 					i{
 						display: inline-block;
-						width: 30px;
-						height: 30px;
-						background: url("../../assets/TreePlanting.fw.png") no-repeat 50px 0;
+						width: 0.8rem;
+						height: 0.8rem;
+						background: url("../../assets/TreePlanting.fw.png") no-repeat -2.66rem -5.33rem;
 					}
 				}
 				.center{
