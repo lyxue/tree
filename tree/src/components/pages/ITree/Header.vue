@@ -2,7 +2,9 @@
 	<div id="header">
 		<div class="daohang">
 			<ul>
-				<li class="left" @click="fanhui"><img src="../../../assets/return.png"></li>
+				<li class="left" @click="fanhui">
+					<i></i>
+				</li>
 				<li class="center">我要种树</li>
 				<li class="right"></li>
 			</ul>
@@ -48,15 +50,20 @@ export default {
 				display: flex;
 				justify-content: space-between;
 				.left{
-					padding-left: 0.34rem;
+					margin-left: 12.5px;
 					font-size: 0.48rem;
 					color: #333333;
-					height: 0.46rem;
+					height: 0.5rem;
 					text-align: left;
 					line-height:0.46rem;
-					img{
+					i{
+						display: inline-block;
 						width: 0.26rem;
 						height: 0.5rem;
+						background: url("../../../assets/TreePlanting.png") no-repeat 100px 200px;
+						position: absolute;
+						top: 0;
+						left: 0;
 					}
 				}
 				.center{

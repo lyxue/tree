@@ -2,7 +2,9 @@
 	<div id="header">
 		<div class="daohang">
 			<ul>
-				<li class="left"><img src="../../assets/return.png"></li>
+				<li class="left">
+					<i></i>
+				</li>
 				<li class="center">植树节活动</li>
 				<li class="right"></li>
 			</ul>
@@ -45,16 +47,17 @@ export default {
 				list-style: none;
 				display: flex;
 				justify-content: space-between;
+				padding-left: 12.5px;
 				.left{
-					padding-left: 0.34rem;
 					font-size: 0.48rem;
-					color: #333333;
-					height: 0.46rem;
-					text-align: left;
-					line-height:0.46rem;
-					img{
-						width: 0.26rem;
-						height: 0.5rem;
+					width: 30px;
+					height: 30px;
+					// background: url("../../assets/TreePlanting.fw.png") no-repeat 2px 0;
+					i{
+						display: inline-block;
+						width: 30px;
+						height: 30px;
+						background: url("../../assets/TreePlanting.fw.png") no-repeat 50px 0;
 					}
 				}
 				.center{

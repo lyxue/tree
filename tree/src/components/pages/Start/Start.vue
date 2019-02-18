@@ -38,7 +38,7 @@ export default {
 	},
 	data(){
 		return {
-			isShow:false,   		//遮罩层
+			isShow:true,   		//遮罩层
 			show:false,				//关注公众号
 			guanbi:true,			//关闭绑定手机号的弹窗
 			tanchu:false,			//黑色提示框
@@ -48,11 +48,11 @@ export default {
 		}
 	},
 	created:function(){ 
-
 	},
 	methods:{
 		close(){     //关闭绑定号码弹窗
 			this.guanbi=false;
+			this.isShow=false;
 		},
 		getNumber(){  //获取验证码===========》弹出黑色弹窗
 			this.tanchu=true;
@@ -82,8 +82,7 @@ export default {
 			width:10rem;
 			position: relative;
 			.zhezhao{					//遮罩
-				margin-top: 1.73rem;
-				position: fixed;
+				position: absolute;
 				left:0rem;
 				right:0rem;
 				bottom:0rem;

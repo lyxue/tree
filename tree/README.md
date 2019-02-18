@@ -34,3 +34,4 @@ npm install less less-loader --save-dev(--save-dev表示不上线)
 <!-- 页面 -->
 1、ITree我要种树
 2、WePlantTrees我们种树
+3、EnergyRanking能量排行
