@@ -9,7 +9,8 @@ import router from './router'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 //全局引入mint-ui
-
+import "../node_modules/animate.css/animate.css"
+//引入animate.css的动画库
 Vue.config.productionTip = false
 
 new Vue({

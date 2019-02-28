@@ -1,8 +1,8 @@
 <template>
 	<div id="invitation">
-		<div class="dingwei">
+	<!-- 	<div class="dingwei">
 			<Header></Header>
-		</div>
+		</div> -->
 		<div class="main">
 			<div class="zhuti"></div>
 			<div class="biaoti">会飞的小鱼儿邀请你和他/她一起种树啦~</div>
@@ -12,11 +12,11 @@
 	</div>
 </template>
 <script>
-import Header from "./Header.vue";
+// import Header from "./Header.vue";
 export default {
 	name:"Start",
 	components:{
-		Header
+		
 	},
 	data(){
 		return {
@@ -31,17 +31,17 @@ export default {
 
 <style type="text/css" lang="less" scoped>
 	#invitation{
-		.dingwei{
-			position: fixed;
-			top: 0;
-			right: 0;
-			left: 0;
-			z-index: 99999;
-		}
+// 		.dingwei{
+// 			position: fixed;
+// 			top: 0;
+// 			right: 0;
+// 			left: 0;
+// 			z-index: 99999;
+// 		}
 		.main{
-			margin-top: 1.2rem;
+			// margin-top: 1.2rem;
 			width: 10rem;
-			height: 16.58rem;
+			height: 17.78rem;
 			background: url("http://wx.yn10010.com/wx_webs/tree/static/img/invitation.png") no-repeat;
 			background-size:cover;
 			position: relative;
@@ -56,11 +56,11 @@ export default {
 				border-radius: 0.8rem;
 			}
 			.ziji{
-				margin-top: 13.65rem;
+				margin-top: 14.93rem;
 				margin-left: 0.73rem;
 			}
 			.hezhong{
-				margin-top: 13.65rem;
+				margin-top: 14.93rem;
 				margin-right:  0.73rem;
 			}
 			.zhuti{

@@ -1,6 +1,6 @@
 <template>
 	<div id="home">
-		<Header></Header>
+		<!-- <Header></Header> -->
 		<div class="main">
 			<!-- 遮罩层 -->
 			<div class="zhezhao" v-if="isShow"></div>
@@ -30,24 +30,26 @@
 	</div>
 </template>
 <script>
-import Header from "../../commons/Header.vue";
+// import Header from "../../commons/Header.vue";
 export default {
 	name:"Start",
 	components:{
-		Header
+	
 	},
 	data(){
 		return {
-			isShow:true,   		//遮罩层
+			isShow:true,   		    //遮罩层
 			show:false,				//关注公众号
 			guanbi:true,			//关闭绑定手机号的弹窗
 			tanchu:false,			//黑色提示框
+			timer: null, 		    // 定时器名称
 			shumiao:[
 				
 			]
 		}
 	},
 	created:function(){ 
+		console.log(window.location.href);
 	},
 	methods:{
 		close(){     //关闭绑定号码弹窗
@@ -69,6 +71,10 @@ export default {
 		weTree(){
 			this.$router.push("/wePlantTrees")		//我们种树
 		}
+	},
+	beforeDestroy() {
+		clearInterval(this.timer);        
+		this.timer = null;
 	}
 }
 </script>
@@ -77,8 +83,8 @@ export default {
 	#home{
 		.main{
 			background: url("http://wx.yn10010.com/wx_webs/tree/static/img/login_background@2x.png") no-repeat;
-			background-size:cover;
-			height:16.58rem;
+			background-size:10rem 17.78rem;
+			height:17.78rem;
 			width:10rem;
 			position: relative;
 			.zhezhao{					//遮罩
@@ -123,7 +129,8 @@ export default {
 					display: inline-block;
 					width: 0.74rem;
 					height: 0.74rem;
-					background: url("../../../assets/TreePlanting.fw.png") no-repeat -0.05rem 0;
+					background: url("data:image/png;base64,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") no-repeat;
+					background-size:0.74rem 0.74rem;
 				}
 				.login1{
 					width: 5.54rem;
